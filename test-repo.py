@@ -30,9 +30,9 @@ def webhook():
 def makeWebhookResult(req):
    # speech = "fulfillment").get("speech")
 
-    #print("Response:")
-    #print(speech)
     speech = "this is how you do it"
+    print("Response:")
+    print(speech)
 
     return {
         "speech": speech,
