@@ -28,10 +28,11 @@ def webhook():
     return r
 
 def makeWebhookResult(req):
-    speech = "fulfillment").get("speech")
+   # speech = "fulfillment").get("speech")
 
-    print("Response:")
-    print(speech)
+    #print("Response:")
+    #print(speech)
+    speech = "this is how you do it"
 
     return {
         "speech": speech,
