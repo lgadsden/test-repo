@@ -37,8 +37,8 @@ def makeWebhookResult(req):
     return {
         "speech": speech,
         "displayText": speech,
-        "data": {},
-        "contextOut": [],
+        #"data": {},
+        #"contextOut": [],
         "source": "test-api-app"
     }
 
