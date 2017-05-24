@@ -28,9 +28,9 @@ def webhook():
     return r
 
 def makeWebhookResult(req):
-   # speech = "fulfillment").get("speech")
+    speech = req.get("fulfillment").get("speech")
 
-    speech = "this is how you do it"
+    #speech = "this is how you do it"
     print("Response:")
     print(speech)
 
