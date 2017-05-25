@@ -16,7 +16,12 @@ app = Flask(__name__)
 def webhook():
     req = request.get_json(silent=True, force=True)
     
-    speech = "please work"
+    sessionid = req.get("sessionId")
+    timestamp = req.get("timestamp")
+    result = req.get("result")
+    rquery = result.get("resolvedQuery)
+    
+    speech = "My session ID is {}. The time stamp is {}. Your input was {}. We will add this to a database".format(sessionid, timestamp, rquery)
     
     out= {
         "speech": speech,
