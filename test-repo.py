@@ -19,7 +19,7 @@ def webhook():
     sessionid = req.get("sessionId")
     timestamp = req.get("timestamp")
     result = req.get("result")
-    rquery = result.get("resolvedQuery)
+    rquery = result.get("resolvedQuery")
     
     speech = "My session ID is {}. The time stamp is {}. Your input was {}. We will add this to a database".format(sessionid, timestamp, rquery)
     
