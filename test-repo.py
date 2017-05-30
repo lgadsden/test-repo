@@ -39,7 +39,7 @@ def webhook():
            'sessionId': sessionId,
            'timestamp': timestamp,
            'result': result,
-           'query' : query
+           'query' : query,
            'fulfillment': fulfillment}
     
     table.put_item(Item = plus)
