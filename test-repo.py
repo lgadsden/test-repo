@@ -43,9 +43,9 @@ def webhook():
            'query' : query,
            'response': resp}
     
-    table.put_item(Item = plus)
+    pt = table.put_item(Item = plus)
     
-    print(plus)
+    return pt
     
         
 
