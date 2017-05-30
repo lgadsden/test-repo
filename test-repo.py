@@ -45,6 +45,7 @@ def webhook():
     
     pt = table.put_item(Item = plus)
     
+    print(pt)
     return pt
     
         
