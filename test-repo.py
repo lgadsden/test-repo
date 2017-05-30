@@ -45,6 +45,8 @@ def webhook():
     
     table.put_item(Item = plus)
     
+    print(plus)
+    
         
 
 if __name__ == '__main__':
