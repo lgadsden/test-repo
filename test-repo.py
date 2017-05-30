@@ -34,13 +34,14 @@ def webhook():
     result = req.get("result")
     query = result.get("resolvedQuery")
     fulfillment = result.get('fulfillment')
+    resp = fulfillment.get('speech')
     
     plus = {'id' : id1,
            'sessionId': sessionId,
            'timestamp': timestamp,
-           'result': result,
+           #'result': result,
            'query' : query,
-           'fulfillment': fulfillment}
+           'response': resp}
     
     table.put_item(Item = plus)
     
