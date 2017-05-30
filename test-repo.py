@@ -35,7 +35,7 @@ def webhook():
     query = result.get("resolvedQuery")
     fulfillment = result.get('fulfillment')
     
-    plus = {'id' = id1,
+    plus = {'id' : id1,
            'sessionId': sessionId,
            'timestamp': timestamp,
            'result': result,
