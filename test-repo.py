@@ -2,10 +2,10 @@
 
 # the part up top tells the computer to use python  
 # (while the app is technially serveless) since we do not manage a server ourselves
-# A server is started byb Heroku and the bit above tells it to use python to run this code 
+# A server is started by Heroku and the bit above tells it to use python to run this code 
 
 # Here we import the packages needed for app 
-import boto3
+import boto3 #for aws 
 import urllib
 import json
 import os
@@ -14,15 +14,17 @@ from flask import Flask
 from flask import request
 from flask import make_response
 
+# sets credentials for using dynamodb under our account
 dynamodb = boto3.resource('dynamodb', region_name = 'us-east-1', aws_access_key_id= os.environ['ACCESS_KEY'],
     aws_secret_access_key= os.environ['SECRET_KEY'])
 
+# links to the chatbot table on dynamodb
 table = dynamodb.Table('chatbot_info')
 
 # Flask app should start in global layout
 app = Flask(__name__)
 
-# This is needed to beging Flask app --- POST is a method for transmitting data 
+# This is needed to begin the Flask app --- POST is a method for transmitting data 
 @app.route('/webhook', methods=['POST'])
 def webhook():
     # api.ai pushes json info to the app's url and req grabs the json 
@@ -36,6 +38,7 @@ def webhook():
     fulfillment = result.get('fulfillment')
     resp = fulfillment.get('speech')
     
+    # we add the info that we want to a python dictionary
     plus = {'id' : id1,
            'sessionId': sessionId,
            'timestamp': timestamp,
@@ -43,16 +46,20 @@ def webhook():
            'query' : query,
            'response': resp}
     
-    pt = table.put_item(Item = plus)
+    # we print the dictonary --- this can be viewed in the logs file
+    print(plus)
     
-    print(pt)
-    return pt
+    # we push items into the database
+    return table.put_item(Item = plus)
     
         
-
+# this was part of the default setup 
+# if __name__ = 'main' runs the function this only if the file is called and not part of another module
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
 
+    # this just prints the port to the log file
     print "Starting app on port %d" % port
-
+    
+    # this runs the flask app  
     app.run(debug=True, port=port, host='0.0.0.0')
