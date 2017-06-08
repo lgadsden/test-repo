@@ -27,7 +27,8 @@ app = Flask(__name__)
 # This is needed to begin the Flask app --- POST is a method for transmitting data 
 @app.route('/webhook', methods=['POST'])
 def webhook():
-    # api.ai pushes json info to the app's url and req grabs the json 
+    # api.ai pushes json info to the app's url and req grabs the json
+    print(req)
     req = request.get_json(silent=True, force=True)
     # all of the req.get instances pull data fromm specific variables from the json
     id1 = req.get('id')
