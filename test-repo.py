@@ -49,9 +49,10 @@ def webhook():
     
     # we print the dictonary --- this can be viewed in the logs file
     print(plus)
+    table.put_item(Item = plus)
     
     # we push items into the database
-    return table.put_item(Item = plus)
+    return None
     
         
 # this was part of the default setup 
