@@ -29,6 +29,7 @@ app = Flask(__name__)
 def webhook():
     # api.ai pushes json info to the app's url and req grabs the json
     req = request.get_json(silent=True, force=True)
+    print(req)
     # all of the req.get instances pull data fromm specific variables from the json
     id1 = req.get('id')
     sessionId = req.get("sessionId")
