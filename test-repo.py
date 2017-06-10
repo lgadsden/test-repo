@@ -52,7 +52,7 @@ def webhook():
     table.put_item(Item = plus)
     
     # we push items into the database
-    return None
+    return "good"
     
         
 # this was part of the default setup 
