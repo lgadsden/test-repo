@@ -1,5 +1,6 @@
 # test-repo
-This is a testing repository for the ARC Chat bot project. 
+This is a repository that I built for a chatbot project.
+
 
 The requirements file must contain any packages not included with python by default.
 
